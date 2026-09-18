@@ -35,12 +35,6 @@ final class CharacterListViewModel {
 	func findCharacters(with text: String) {
 		inputTask?.cancel()
 
-		guard text.isNotEmpty else {
-			characters = []
-			loadingState = .idle
-			return
-		}
-
 		// Check if it's been at least 1 second since the last search
 		let shouldSearchImmediately: Bool
 		if let lastSearch = lastSearchTime {
