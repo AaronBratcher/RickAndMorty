@@ -53,7 +53,6 @@ struct Executor {
 
 	func run<DataType: Decodable>(_ request: URLRequest, decoder: JSONDecoder) async throws -> DataType {
 		let (data, _) = try await session.data(for: request)
-		try? await Task.sleep(nanoseconds: 100_000_000)
 
 		do {
 			return try decoder.decode(DataType.self, from: data)
